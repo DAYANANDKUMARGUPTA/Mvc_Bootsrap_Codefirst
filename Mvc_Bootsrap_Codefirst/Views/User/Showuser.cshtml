@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Mvc_Bootsrap_Codefirst.Models.tbluser1>
+
+@{
+    ViewBag.Title = "Showuser";
+}
+
+<h2>USER DETAILS</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Adduser")
+</p>
+<table class="table" style="background-color:ButtonShadow;color:black;width:1000px">
+    <tr style="background-color:ButtonHighlight;color:red">
+        <th>
+            @Html.DisplayNameFor(model => model.uid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.salary)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.country)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.state)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.uid)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.age)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.salary)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.country)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.state)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Adduser", new { id = item.uid }) |
+        @Html.ActionLink("Delete", "Deleteuser", new { id = item.uid })
+    </td>
+</tr>
+}
+
+</table>
